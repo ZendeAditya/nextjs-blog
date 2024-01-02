@@ -1,12 +1,13 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { IoIosSunny } from "react-icons/io";
 import { BsMoonStars } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross2 } from "react-icons/rx";
-type Props = {
-};
+import style from "./Nav.module.css";
+type Props = {};
 
 const Nav = (props: Props) => {
   const [open, setOpen] = useState(false);
@@ -35,7 +36,7 @@ const Nav = (props: Props) => {
       href: "/login",
     },
     {
-      name: "Sign Up",
+      name: "SignUp",
       href: "/signup",
     },
   ];
@@ -43,17 +44,35 @@ const Nav = (props: Props) => {
     <>
       <nav className="container mx-auto bg-black/20  rounded-md py-2 px-9 m-2 h-12 flex items-center justify-between">
         <div>
-          <h2 className="font-semibold">{"<Blog/>"}</h2>
+          <h2 className="font-semibold">{"<DevHub/>"}</h2>
         </div>
-        <ul className={`${open ? "hidden" : "block"} z-40 absolute right-0 bg-green-50 w-screen  h-screen top-0  flex items-center justify-evenly flex-col`}>
+        <ul
+          className={`${
+            !open ? "hidden" : "block"
+          } absolute right-0 bg-green-50 w-screen  h-screen top-0  flex items-center justify-center gap-8 font-semibold flex-col lg:hidden
+          `}
+        >
           {navLinks.map((link) => (
-            <li className="" key={link.name}>
+            <li
+              className={`${style.underlineHoverEffect} uppercase`}
+              key={link.name}
+            >
               <Link href={link.href}>{link.name}</Link>
             </li>
           ))}
         </ul>
-        <div className="lg:hidden">
-          <button onClick={handleOpen} className="-z-40 absolute right-0">
+        <ul className={`hidden lg:flex items-center justify-between gap-4`}>
+          {navLinks.map((link) => (
+            <li
+              className={`${style.underlineHoverEffect} uppercase`}
+              key={link.name}
+            >
+              <Link href={link.href}>{link.name}</Link>
+            </li>
+          ))}
+        </ul>
+        <div className="lg:hidden z-50 duration-500 ease-in">
+          <button onClick={handleOpen} className="">
             {open ? <RxCross2 size={30} /> : <RxHamburgerMenu size={30} />}
           </button>
         </div>
