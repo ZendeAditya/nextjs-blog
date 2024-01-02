@@ -6,6 +6,7 @@ import { IoIosSunny } from "react-icons/io";
 import { BsMoonStars } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross2 } from "react-icons/rx";
+import { CiSearch } from "react-icons/ci";
 import style from "./Nav.module.css";
 type Props = {};
 
@@ -20,7 +21,7 @@ const Nav = (props: Props) => {
       href: "/",
     },
     {
-      name: "Blog",
+      name: "Blogs",
       href: "/blog",
     },
     {
@@ -42,14 +43,15 @@ const Nav = (props: Props) => {
   ];
   return (
     <>
-      <nav className="container mx-auto bg-black/20  rounded-md py-2 px-9 m-2 h-12 flex items-center justify-between">
-        <div>
+      <nav className="container mx-auto bg-black/20  rounded-md py-2 px-10  m-2 h-12 flex items-center justify-between ">
+        <div className="flex items-center justify-start gap-3">
           <h2 className="font-semibold">{"<DevHub/>"}</h2>
+          <CiSearch size={25} />
         </div>
         <ul
           className={`${
             !open ? "hidden" : "block"
-          } absolute right-0 bg-green-50 w-screen  h-screen top-0  flex items-center justify-center gap-8 font-semibold flex-col lg:hidden
+          } absolute right-0 bg-gradient-to-tr from-blue-300 to-blue-100 w-screen  h-screen top-0  flex items-center justify-center gap-8 font-semibold flex-col lg:hidden
           `}
         >
           {navLinks.map((link) => (

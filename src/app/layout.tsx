@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={fira.className}>
-        <main className="p-3 overflow-x-hidden">
+        <main className="overflow-x-hidden">
           <Nav />
           {children}
         </main>
