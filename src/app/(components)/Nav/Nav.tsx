@@ -48,10 +48,11 @@ const Nav = (props: Props) => {
           <h2 className="font-semibold">{"<DevHub/>"}</h2>
           <CiSearch size={25} />
         </div>
+        {/* sm screen */}
         <ul
           className={`${
-            !open ? "hidden" : "block"
-          } absolute right-0 bg-gradient-to-tr from-blue-300 to-blue-100 w-screen  h-screen top-0  flex items-center justify-center gap-8 font-semibold flex-col lg:hidden
+            !open ? "translate-x-72" : "translate-x-0 duration-300 ease-in"
+          } absolute right-0 bg-gradient-to-tr from-blue-300 to-blue-100 w-72  h-screen top-0  flex items-center justify-center gap-8 font-semibold flex-col lg:hidden
           `}
         >
           {navLinks.map((link) => (
@@ -63,6 +64,7 @@ const Nav = (props: Props) => {
             </li>
           ))}
         </ul>
+        {/* md & lg screen  */}
         <ul className={`hidden lg:flex items-center justify-between gap-4`}>
           {navLinks.map((link) => (
             <li
