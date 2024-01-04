@@ -3,4 +3,7 @@ import options from "@/app/api/auth/[...nextauth]/options";
 export const {
   handlers: { GET, POST },
   auth,
+  signIn,
+  signOut,
+  update,
 } = NextAuth(options);

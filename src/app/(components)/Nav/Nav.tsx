@@ -45,7 +45,9 @@ const Nav = (props: Props) => {
     <>
       <nav className="container mx-auto bg-black/20  rounded-md py-2 px-10  m-2 h-12 flex items-center justify-between ">
         <div className="flex items-center justify-start gap-3">
-          <h2 className="font-semibold">{"<DevHub/>"}</h2>
+          <Link href={"/"}>
+            <h2 className="font-semibold">{"<DevHub/>"}</h2>
+          </Link>
           <CiSearch size={25} />
         </div>
         {/* sm screen */}
