@@ -132,12 +132,20 @@ const SignUpPage = (props: Props) => {
         </div>
         <div className="flex items-center justify-center gap-10 p-5">
           <div>
-            <button onClick={async () => signIn("google")}>
+            <button
+              onClick={async () =>
+                signIn("google", {
+                  callbackUrl: "/profile",
+                })
+              }
+            >
               <IoLogoGoogle size={30} className="cursor-pointer" />
             </button>
           </div>
           <div>
-            <button onClick={() => signIn("github")}>
+            <button
+              onClick={() => signIn("github", { callbackUrl: "/profile" })}
+            >
               <FaGithub size={30} className="cursor-pointer" />
             </button>
           </div>

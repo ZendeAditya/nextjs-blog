@@ -1,17 +1,21 @@
 "use client";
 import Link from "next/link";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { IoIosSunny } from "react-icons/io";
 import { BsMoonStars } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross2 } from "react-icons/rx";
 import { CiSearch } from "react-icons/ci";
+import { useRouter } from "next/navigation";
 import style from "./Nav.module.css";
 type Props = {};
 
 const Nav = (props: Props) => {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+
+  const navRef = useRef<HTMLUListElement>(null);
   const handleOpen = () => {
     setOpen(!open);
   };
@@ -41,6 +45,14 @@ const Nav = (props: Props) => {
       href: "/signup",
     },
   ];
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [open]);
   return (
     <>
       <nav className="container mx-auto bg-black/20  rounded-md py-2 px-10  m-2 h-12 flex items-center justify-between ">
@@ -53,7 +65,9 @@ const Nav = (props: Props) => {
         {/* sm screen */}
         <ul
           className={`${
-            !open ? "translate-x-72" : "translate-x-0 duration-300 ease-in"
+            !open
+              ? "translate-x-72"
+              : "translate-x-0 duration-300 ease-in overflow-hidden"
           } absolute right-0 bg-gradient-to-tr from-blue-300 to-blue-100 w-72  h-screen top-0  flex items-center justify-center gap-8 font-semibold flex-col lg:hidden
           `}
         >
